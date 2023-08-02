@@ -1,0 +1,9 @@
+version: '3.1'
+
+services:
+  app-build:
+    image: hmerritt/android-sdk:latest
+    network_mode: "host"
+    restart: on-failure
+    volumes:
+      - ./:/project/app
