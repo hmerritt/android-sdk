@@ -4,6 +4,8 @@ Build Android react-native apps with `android-sdk`.
 
 `eas-cli` is included to build [Expo](https://expo.dev/) apps.
 
+> Docker hub image: [`hmerritt/android-sdk`](https://hub.docker.com/r/hmerritt/android-sdk)
+
 ## Setup locally
 
 1. Create a `docker-compose.yml` file in your project directory.
