@@ -1,7 +1,7 @@
 FROM node:20.4.0
 
 WORKDIR /
-RUN npm -g i eas-cli sharp-cli
+RUN npm -g i eas-cli sharp-cli@^2.1.0
 RUN apt update && apt install -y wget unzip android-sdk
 RUN corepack enable && corepack prepare yarn@stable --activate && yarn set version stable
 RUN wget https://dl.google.com/android/repository/commandlinetools-linux-9477386_latest.zip && unzip commandlinetools-linux-9477386_latest.zip
