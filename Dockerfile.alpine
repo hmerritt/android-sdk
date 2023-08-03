@@ -1,0 +1,23 @@
+#
+# @Note: This is for reference only and is not recommended.
+#
+FROM node:20.4.0-alpine3.18
+
+WORKDIR /
+RUN npm -g i eas-cli sharp-cli@^2.1.0
+RUN apk update && apk add --no-cache bash coreutils openjdk11 libstdc++ unzip wget && rm -rf /var/cache/apk/*
+RUN corepack enable && corepack prepare yarn@stable --activate && yarn set version stable
+RUN wget https://dl.google.com/android/repository/commandlinetools-linux-9477386_latest.zip && unzip commandlinetools-linux-9477386_latest.zip
+RUN mkdir -p /android-sdk/cmdline-tools/latest && mv ./cmdline-tools/* ./android-sdk/cmdline-tools/latest
+ENV PATH /android-sdk/cmdline-tools/latest/bin:$PATH
+ENV PATH /usr/lib/jvm/java-11-openjdk/bin:$PATH
+ENV ANDROID_SDK_ROOT /android-sdk
+ENV JAVA_HOME /usr/lib/jvm/java-11-openjdk
+ENV EAS_NO_VCS 1
+RUN yes | sdkmanager --licenses
+
+WORKDIR /project
+WORKDIR /project/app
+VOLUME ["/project/app"]
+
+CMD ["tail", "-f", "/dev/null"]
