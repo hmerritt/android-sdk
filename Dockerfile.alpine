@@ -4,7 +4,7 @@
 FROM node:20.4.0-alpine3.18
 
 WORKDIR /
-RUN npm -g i eas-cli sharp-cli@^2.1.0
+RUN npm -g i eas-cli @expo/ngrok@^4.1.0 sharp-cli@^2.1.0
 RUN apk update && apk add --no-cache bash coreutils openjdk11 libstdc++ unzip wget && rm -rf /var/cache/apk/*
 RUN corepack enable && corepack prepare yarn@stable --activate && yarn set version stable
 RUN wget https://dl.google.com/android/repository/commandlinetools-linux-9477386_latest.zip && unzip commandlinetools-linux-9477386_latest.zip
