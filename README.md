@@ -28,7 +28,7 @@ services:
 ## Build & Release
 
 ```
-docker build -t hmerritt/android-sdk:latest -t hmerritt/android-sdk:1.3.0 .
+docker build -t hmerritt/android-sdk:latest -t hmerritt/android-sdk:1.5.0 .
 ```
 
 ```
