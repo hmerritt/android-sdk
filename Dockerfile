@@ -1,8 +1,9 @@
 FROM node:24.19.0
 
 WORKDIR /
-RUN npm install -g npm@latest && npm -g i eas-cli bun @expo/ngrok@^4.1.0 sharp-cli@^2.1.0
-RUN apt update && apt install -y wget unzip android-sdk
+RUN npm install -g npm@latest && npm -g i eas-cli @expo/ngrok@^4.1.0 sharp-cli@^2.1.0
+RUN apt update && apt install -y wget unzip android-sdk git
+RUN curl -fsSL https://bun.sh/install | bash
 RUN corepack enable && corepack prepare yarn@stable --activate && yarn set version stable
 RUN wget https://dl.google.com/android/repository/commandlinetools-linux-15859902_latest.zip && unzip commandlinetools-linux-15859902_latest.zip
 RUN wget https://dl.google.com/android/repository/platform-tools-latest-linux.zip && unzip platform-tools-latest-linux.zip

@@ -4,8 +4,9 @@
 FROM node:24.19.0-alpine3.23
 
 WORKDIR /
-RUN npm install -g npm@latest && npm -g i eas-cli bun @expo/ngrok@^4.1.0 sharp-cli@^2.1.0
-RUN apk update && apk add --no-cache bash coreutils openjdk11 libstdc++ unzip wget && rm -rf /var/cache/apk/*
+RUN npm install -g npm@latest && -g i eas-cli bun @expo/ngrok@^4.1.0 sharp-cli@^2.1.0
+RUN apk update && apk add --no-cache bash git coreutils openjdk11 libstdc++ unzip wget && rm -rf /var/cache/apk/*
+RUN curl -fsSL https://bun.sh/install | bash
 RUN corepack enable && corepack prepare yarn@stable --activate && yarn set version stable
 RUN wget https://dl.google.com/android/repository/commandlinetools-linux-15859902_latest.zip && unzip commandlinetools-linux-15859902_latest.zip
 RUN wget https://dl.google.com/android/repository/platform-tools-latest-linux.zip && unzip platform-tools-latest-linux.zip
